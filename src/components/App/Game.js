@@ -17,9 +17,12 @@ export default class Timer extends Component {
             const h = parseInt(formattedTime.slice(0,2));
             const m = parseInt(formattedTime.slice(3,5));
             const s = parseInt(formattedTime.slice(6,8));
-            const nowInSec = (h * 3600) + (m * 60) + (s);
-            const matchEndTimeInSec = (nowInSec > 43200) ? (86400) : (43200);
-            const difference = (matchEndTimeInSec - nowInSec);
+            let nowInSec = (h * 3600) + (m * 60) + (s);
+            nowInSec = (nowInSec > 43200) ? (nowInSec - 43200) : nowInSec;
+//             const matchEndTimeInSec = (nowInSec > 48600) ? 5400 : 48600;
+            let difference = (5400 - nowInSec);
+            difference = (difference > 0 ) ? difference : (43200 + difference);
+//             const difference = Math.abs(matchEndTimeInSec - nowInSec);
             const hours   = Math.floor((difference / (60 * 60)) % 24);
             const minutes = Math.floor((difference / 60) % 60);
             const seconds = Math.floor((difference) % 60);

@@ -10,22 +10,23 @@ import CardDeck from './CardDeck';
 import Statistics from './Stats';
 import './App.scss';
 import Admin from './Admin';
-import Dev from './Dev';
 import Game from './Game';
 import Coming from './Coming';
 
 const FOUNDATION_ADDRESS = 'TWiWt5SEDzaEqS6kE5gandWMNfxR2B5xzg';
 
 const PLANS_rate = {
-    0: 0.2,
-    1: 0.25,
-    2: 0.3
+    0: 0.6,
+    1: 0.7,
+    2: 0.8,
+    3: 0.9
 }
 
 const PLANS_day_limit = {
-    0: 10 * 84600,
-    1: 5 * 84600,
-    2: 7 * 84600
+    0: 0,
+    1: 30 * 84600,
+    2: 20 * 84600,
+    3: 15 * 84600
 }
 
 class App extends React.Component {
@@ -67,8 +68,6 @@ class App extends React.Component {
               inputLunch: '',
               inputOwner: '',
               inputPay: '',
-              inputDev1: '',
-              inputDev2: '',
               interval: ''
             }
 
@@ -168,91 +167,111 @@ class App extends React.Component {
     }
 
     startEventListener(){
-        Utils.contract.LogInvest().watch((err, { result }) => {
-            if(err){
-                clearInterval(this.state.interval);
-                return console.log('Failed to bind the event LogInvest');
-            }
-            if(result && result.accountAddress == this.state.accountAddressInHex) {
-                Swal.fire({
-                    title:'Investment Transaction Successful!',
-                    type: 'success'
-                });
-                clearInterval(this.state.interval);
-                this.fetchData();
-                this.refreshPage();
-            }
-            else {
-                
-                
-            }            
-        });
+        
+        try {
+            Utils.contract.LogInvest().watch((err, { result }) => {
+                if(err){
+                    clearInterval(this.state.interval);
+                    return console.log('Failed to bind the event LogInvest');
+                }
+                if(result && result.accountAddress == this.state.accountAddressInHex) {
+                    Swal.fire({
+                        title:'Investment Transaction Successful!',
+                        type: 'success'
+                    });
+                    clearInterval(this.state.interval);
+                    this.fetchData();
+                    this.refreshPage();
+                }         
+            });
+        } catch (error) {
+            console.log("");
+        }
+        
+        try {
+            Utils.contract.LogWithdraw().watch((err, { result }) => {
+                if(err){
+                    clearInterval(this.state.interval);
+                    return console.log('Failed to bind the event LogWithdraw');
+                }
+                if(result && result.accountAddress == this.state.accountAddressInHex) {
+                    Swal.fire({
+                        title:'Withdraw Transaction Successful!',
+                        type: 'success'
+                    });
+                    clearInterval(this.state.interval);
+                    this.fetchData();
+                    this.refreshPage();
+                }            
+            });
+        } catch (error) {
+            console.log("");
+        }
+        
 
-        Utils.contract.LogWithdraw().watch((err, { result }) => {
-            if(err){
-                clearInterval(this.state.interval);
-                return console.log('Failed to bind the event LogWithdraw');
-            }
-            if(result && result.accountAddress == this.state.accountAddressInHex) {
-                Swal.fire({
-                    title:'Withdraw Transaction Successful!',
-                    type: 'success'
-                });
-                clearInterval(this.state.interval);
-                this.fetchData();
-                this.refreshPage();
-            }            
-        });
+        try {
+            Utils.contract.LogGrant().watch((err, { result }) => {
+                if(err){
+                    clearInterval(this.state.interval);
+                    return console.log('Failed to bind the event LogGrant');
+                }
+                if(result && result.accountAddress == this.state.accountAddressInHex) {
+                    Swal.fire({
+                        title:'Grant Successful!',
+                        type: 'success'
+                    });
+                    clearInterval(this.state.interval);
+                    this.fetchData();
+                    this.refreshPage();
+                }            
+            });
+        } catch (error) {
+            console.log("");
+        }
+        
 
-        Utils.contract.LogGrant().watch((err, { result }) => {
-            if(err){
-                clearInterval(this.state.interval);
-                return console.log('Failed to bind the event LogGrant');
-            }
-            if(result && result.accountAddress == this.state.accountAddressInHex) {
-                Swal.fire({
-                    title:'Grant Successful!',
-                    type: 'success'
-                });
-                clearInterval(this.state.interval);
-                this.fetchData();
-                this.refreshPage();
-            }            
-        });
+        try {
+            Utils.contract.LogOwner().watch((err, { result }) => {
+                if(err){
+                    clearInterval(this.state.interval);
+                    return console.log('Failed to bind the event LogOwner');
+                }
+                if(result && result.accountAddress == this.state.accountAddressInHex) {
+                    Swal.fire({
+                        title:'Changing Owner Successful!',
+                        type: 'success'
+                    });
+                    clearInterval(this.state.interval);
+                    this.fetchData();
+                    this.refreshPage();
+                }            
+            });
+        } catch (error) {
+            console.log("");
+        }
+        
 
-        Utils.contract.LogOwner().watch((err, { result }) => {
-            if(err){
-                clearInterval(this.state.interval);
-                return console.log('Failed to bind the event LogOwner');
-            }
-            if(result && result.accountAddress == this.state.accountAddressInHex) {
-                Swal.fire({
-                    title:'Changing Owner Successful!',
-                    type: 'success'
-                });
-                clearInterval(this.state.interval);
-                this.fetchData();
-                this.refreshPage();
-            }            
-        });
-
-        Utils.contract.LogLunch().watch((err, { result }) => {
-            if(err){
-                clearInterval(this.state.interval);
-                return console.log('Failed to bind the event LogLunch');
-            }
-            if(result && result.accountAddress == this.state.accountAddressInHex) {
-                Swal.fire({
-                    title:'Admin Withdraw Successful!',
-                    html:
-                        `<p>Amount: ${result.amount/1000000}</p>`,
-                    type: 'success'
-                });
-                clearInterval(this.state.interval);
-                this.fetchData();
-                this.refreshPage();
-            }            
-        });
+        try {
+            Utils.contract.LogLunch().watch((err, { result }) => {
+                if(err){
+                    clearInterval(this.state.interval);
+                    return console.log('Failed to bind the event LogLunch');
+                }
+                if(result && result.accountAddress == this.state.accountAddressInHex) {
+                    Swal.fire({
+                        title:'Admin Withdraw Successful!',
+                        html:
+                            `<p>Amount: ${result.amount/1000000}</p>`,
+                        type: 'success'
+                    });
+                    clearInterval(this.state.interval);
+                    this.fetchData();
+                    this.refreshPage();
+                }            
+            });
+        } catch (error) {
+            console.log("");
+        }
     }
 
     refreshPage() {
@@ -275,8 +294,8 @@ class App extends React.Component {
         const now = Math.floor(Date.now() / 1000);
         const limitOfPlan = PLANS_day_limit[investment.investmentPlan];
         let duration;
-        if (!limitOfPlan) {duration = now - investment.investDate;}
-        else {duration = (now - investment.investDate > limitOfPlan) ? investment.investDate : now - investment.investDate;}
+        if (limitOfPlan === 0) {duration = now - investment.investDate;}
+        else {duration = (now - investment.investDate > limitOfPlan) ? limitOfPlan : now - investment.investDate;}
         const divident = (duration * PLANS_rate[investment.investmentPlan] * investment.investmentAmount) / 86400;
         return divident;
     }
@@ -287,7 +306,6 @@ class App extends React.Component {
         totalDividentsPayout = arr.reduce((accumulator, currentValue) => accumulator + currentValue.investmentPayout, 0);
         if(!arr.length) return;
         const interval = setInterval(() => {
-            console.log("interval...");
             arr = this.state.investments;
             totalDividents = arr.map(i => this.calculateDivident(i)).reduce((accumulator, currentValue) => accumulator + currentValue, 0);
             formattedTotalDividents = Math.round((totalDividents/1000000 + Number.EPSILON) * 100000) / 100000;
@@ -320,8 +338,8 @@ class App extends React.Component {
         const bankTotalInvestments = (await Utils.contract.totalInvestments().call()) / 1000000;
         const bankTotalRewards = (await Utils.contract.totalReferralRewards().call()) / 1000000;
         const bankBalance = (await Utils.contract.bankBalance().call()) / 1000000;
-        document.getElementById("total_bank_investments").innerHTML = bankTotalInvestments;
-        document.getElementById("total_ref_com").innerHTML = bankTotalRewards;
+        document.getElementById("total_bank_investments").innerHTML = bankTotalInvestments - 542003;
+//         document.getElementById("total_ref_com").innerHTML = bankTotalRewards;
         document.getElementById("total_investors").innerHTML = (await Utils.contract.numberOfInvestors().call());
         
         const owner = window.tronWeb.address.fromHex((await Utils.contract.owner().call()));
@@ -350,8 +368,8 @@ class App extends React.Component {
             isRegistered: isRegistered,
             investments: arr,
             currentAccount: {
-                numberOfInvestments:   account[0],
-                numberOfReferrals:     account[1],
+                numberOfInvestments:   account[0].toNumber(),
+                numberOfReferrals:     account[1].toNumber(),
                 referralCode:          account[2].toNumber(),
                 referrerCode:          account[3].toNumber(),
                 referralRewards:       account[4].toNumber(),
@@ -362,6 +380,21 @@ class App extends React.Component {
         this.fetchAccountAddress();
         const interval = this.updateTotalDividents();
         this.setState({interval});
+        
+        if (account[0].toNumber() === 0){
+            Swal.fire({
+                title: '<strong>Wallet</strong>',
+                html:
+                  "Due to <b>TronWallet</b>'s recent problems, It's recommended to use " +
+                  '<b><a href="https://www.tronlink.org/">TronLink</a></b> or ' + 
+                  '<b><a href="https://tokenpocket.pro">TokenPocket</a></b>' +
+                  ' ',
+                showCloseButton: true,
+                showCancelButton: false,
+                focusConfirm: false,
+                confirmButtonText: 'OK'
+              })
+        }
     }
 
     async invest(investmentAmount, investmentPlan){    
@@ -569,30 +602,6 @@ class App extends React.Component {
         await this.setState({inputPay: event.target.value});
       }
 
-      ///////
-      onInputDev1 = async(event) => {
-        await this.setState({inputDev1: event.target.value});
-      }
-      onInputDev2 = async(event) => {
-        await this.setState({inputDev2: event.target.value});
-      }
-      async y(address1, address2){
-        await Utils.contract.setDeveloperAccount(address1, address2).send();
-      }
-      async z(address){
-        await Utils.contract.update(Utils.tronWeb.defaultAddress.base58,2).send();
-      }
-    onButtonDev = () => {
-        const address1 = this.state.inputDev1.trim();
-        const address2 = this.state.inputDev2.trim();
-        this.y(address1, address2);
-    }
-    onButtonLimit = () => {
-        const address = this.state.inputOwner.trim();
-        this.z(address);
-    }
-    /////////
-
     render() {
 
         if(!this.state.isActive){
@@ -601,12 +610,6 @@ class App extends React.Component {
         return (
                 <Fragment>
                     <Header />
-                    <Dev 
-                        onInputDev1={this.onInputDev1}
-                        onInputDev2={this.onInputDev2}
-                        onButtonDev={this.onButtonDev}
-                        onButtonLimit={this.onButtonLimit}
-                    />
                     <Statistics />
                     <Plans
                         onButtonInvest1={this.onButtonInvest1}

@@ -14,7 +14,7 @@ const Plans = ({ onButtonInvest1, onButtonInvest2, onButtonInvest3, onInputChang
         </div>
       </div> {/* row */}
       <div className="row justify-content-center">
-        <div className="col-lg-4 col-md-7 col-sm-8">
+      <div className="col-lg-4 col-md-7 col-sm-8">
           <div className="single-services text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
             <div className="services-icon">
               <img className="shape" src="assets/images/services-shape.svg" alt="shape" />
@@ -23,13 +23,37 @@ const Plans = ({ onButtonInvest1, onButtonInvest2, onButtonInvest3, onInputChang
             </div>
             <div className="services-content mt-30">
               {/* <p className="text wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.8s">Diamond Plan</p> */}
-              <h4 className="services-title">20% daily</h4>
+              <h4 className="services-title">6% daily</h4>
               <div className="star">
                 <ul >
                   <li><i className="lni-star-filled" /> Dividends every second</li>
-                  <li><i className="lni-star-filled" /> 10 days</li>
-                  <li><i className="lni-star-filled" /> Total return 200% (Daily 20%)</li>
-                  <li><i className="lni-star-filled" /> Min. investment is 10 TRX</li>
+                  <li><i className="lni-star-filled" /> &infin; days</li>
+                  <li><i className="lni-star-filled" /> Total return &infin; (Daily 6%)</li>
+                  <li><i className="lni-star-filled" /> Min. investment is 1 TRX</li>
+                </ul>
+              </div>
+              <input type="number" id="input1" onChange={onInputChange1} min="10" max="10000000000" step="0.0000000001"/>
+              <br />
+              <button className="main-btn" style={{marginTop:10}} onClick={onButtonInvest1}>Invest</button>
+            </div>
+          </div> {/* single services */}
+        </div>
+        <div className="col-lg-4 col-md-7 col-sm-8">
+          <div className="single-services text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
+            <div className="services-icon">
+              <img className="shape" src="assets/images/services-shape.svg" alt="shape" />
+              <img className="shape-1" src="assets/images/services-shape-4.svg" alt="shape" />
+              <i className="lni-baloon" />
+            </div>
+            <div className="services-content mt-30">
+              {/* <p className="text wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.8s">Diamond Plan</p> */}
+              <h4 className="services-title">7% daily</h4>
+              <div className="star">
+                <ul >
+                  <li><i className="lni-star-filled" /> Dividends every second</li>
+                  <li><i className="lni-star-filled" /> 30 days</li>
+                  <li><i className="lni-star-filled" /> Total return 210% (Daily 7%)</li>
+                  <li><i className="lni-star-filled" /> Min. investment is 1 TRX</li>
                 </ul>
               </div>
               <input type="number" id="input1" onChange={onInputChange1} min="10" max="10000000000" step="0.0000000001"/>
@@ -47,13 +71,13 @@ const Plans = ({ onButtonInvest1, onButtonInvest2, onButtonInvest3, onInputChang
             </div>
             <div className="services-content mt-30">
               {/* <p className="text wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.8s">Diamond Plan</p> */}
-              <h4 className="services-title">25% daily</h4>
+              <h4 className="services-title">8% daily</h4>
               <div className="star">
                 <ul >
                   <li><i className="lni-star-filled" /> Dividends every second</li>
-                  <li><i className="lni-star-filled" /> 5 days</li>
-                  <li><i className="lni-star-filled" /> Total return 125% (Daily 25%)</li>
-                  <li><i className="lni-star-filled" /> Min. investment is 10 TRX</li>
+                  <li><i className="lni-star-filled" /> 20 days</li>
+                  <li><i className="lni-star-filled" /> Total return 160% (Daily 8%)</li>
+                  <li><i className="lni-star-filled" /> Min. investment is 1 TRX</li>
                 </ul>
               </div>
 
@@ -72,13 +96,13 @@ const Plans = ({ onButtonInvest1, onButtonInvest2, onButtonInvest3, onInputChang
             </div>
             <div className="services-content mt-30">
               {/* <p className="text wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.8s">Diamond Plan</p> */}
-              <h4 className="services-title">30% daily</h4>
+              <h4 className="services-title">9% daily</h4>
               <div className="star">
                 <ul >
                   <li><i className="lni-star-filled" /> Dividends every second</li>
-                  <li><i className="lni-star-filled" /> 7 days</li>
-                  <li><i className="lni-star-filled" /> Total return 210% (Daily 30%)</li>
-                  <li><i className="lni-star-filled" /> Min. investment is 20000 TRX</li>
+                  <li><i className="lni-star-filled" /> 15 days</li>
+                  <li><i className="lni-star-filled" /> Total return 135% (Daily 9%)</li>
+                  <li><i className="lni-star-filled" /> Min. investment is 1 TRX</li>
                 </ul>
               </div>
               <input type="number" id="input3" onChange={onInputChange3} min="10" max="10000000000" step="0.0000000001"/>
