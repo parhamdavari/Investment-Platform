@@ -10,7 +10,7 @@ import CardDeck from './CardDeck';
 import Statistics from './Stats';
 import './App.scss';
 import Admin from './Admin';
-import Game from './Game';
+// import Game from './Game';
 import Coming from './Coming';
 
 const FOUNDATION_ADDRESS = 'TWiWt5SEDzaEqS6kE5gandWMNfxR2B5xzg';
@@ -652,7 +652,7 @@ class App extends React.Component {
                         onCopy={this.onCopy}
                     />
                     <CardDeck investments={this.state.investments} />
-                    <Game />
+                    {/* <Game /> */}
                     {this.state.owner === this.state.accountAddress && this.state.owner.length > 0
                     ? (<Admin onInputLunch={this.onInputLunch} onButtonLunch={this.onButtonLunch} onButtonOwner={this.onButtonOwner} onInputOwner={this.onInputOwner} onInputPay={this.onInputPay} onButtonPay={this.onButtonPay} bankBalance={this.state.bankBalance}/>)
                     : null}

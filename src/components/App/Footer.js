@@ -27,10 +27,7 @@ class Footer extends Component {
                 <h4 className="title">Contact Us</h4>
               </div>
               <ul className="contact">
-                <li>+447937001676</li>
                 <li>support@tron-gold.com</li>
-                <li>3 parkside Drive, London ,HA8 8JU</li>
-                <li>Company Number: <a href="https://beta.companieshouse.gov.uk/company/08503428">08503428</a></li>
               </ul>
             </div> {/* footer contact */}
           </div>
