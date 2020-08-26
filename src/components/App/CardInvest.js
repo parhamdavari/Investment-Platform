@@ -15,7 +15,24 @@ const CardInvest = ({ id, amount, plan, date, payout }) => {
   let formattedAmount       = amount / 1000000;
   let formattedPayout       = payout / 1000000;
   let formattedPlan = 0;
-  (plan === 1) ? (formattedPlan = '25%') : ((plan === 2) ? (formattedPlan = '30%') : (formattedPlan = '20%'));
+
+  switch(plan) {
+    case 0:
+      formattedPlan = '6%';
+      break;
+    case 1:
+      formattedPlan = '7%'
+      break;
+    case 2:
+      formattedPlan = '8%'
+      break;
+    case 3:
+      formattedPlan = '9%'
+    break;
+    default:
+      // code block
+  }
+  // (plan === 1) ? (formattedPlan = '7%') : ((plan === 2) ? (formattedPlan = '30%') : (formattedPlan = '20%'));
 
   return (
         <Card style={{flex: id}}>
