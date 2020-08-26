@@ -17,8 +17,6 @@ class Footer extends Component {
               </a>
               <ul className="social">
                 <li><a href="https://t.me/tron_gold"><i className="lni-telegram" /></a></li>
-                <li><a href="https://Twitter.com/-"><i className="lni-twitter-filled" /></a></li>
-                <li><a href="https://www.instagram.com/-"><i className="lni-instagram-filled" /></a></li>
               </ul>
             </div> {/* footer about */}
           </div>
@@ -30,7 +28,7 @@ class Footer extends Component {
               </div>
               <ul className="contact">
                 <li>+447937001676</li>
-                <li>support@goldtron.co</li>
+                <li>support@tron-gold.com</li>
                 <li>3 parkside Drive, London ,HA8 8JU</li>
                 <li>Company Number: <a href="https://beta.companieshouse.gov.uk/company/08503428">08503428</a></li>
               </ul>
