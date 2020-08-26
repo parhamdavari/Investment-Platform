@@ -16,10 +16,10 @@ import Coming from './Coming';
 const FOUNDATION_ADDRESS = 'TWiWt5SEDzaEqS6kE5gandWMNfxR2B5xzg';
 
 const PLANS_rate = {
-    0: 0.6,
-    1: 0.7,
-    2: 0.8,
-    3: 0.9
+    0: 0.06,
+    1: 0.07,
+    2: 0.08,
+    3: 0.09
 }
 
 const PLANS_day_limit = {
