@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 const Home = ({ referralCode, onButtonWhitdraw, referralRewards, numberOfReferrers, referralRewardsPayout, accAdr, accBalance, onCopy }) => {
   return(

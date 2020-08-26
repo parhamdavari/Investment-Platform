@@ -1,6 +1,5 @@
 import React from 'react';
 import CardInvest from './CardInvest';
-import Card from 'react-bootstrap/Card';
 
 const CardDeck = ({ investments }) => {
     const cardsArray = investments.map((investment, i) => {

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Card from 'react-bootstrap/Card';
 
 const CardInvest = ({ id, amount, plan, date, payout }) => {
@@ -10,13 +10,12 @@ const CardInvest = ({ id, amount, plan, date, payout }) => {
   let day = date_.getDate();
   let hours = date_.getHours();
   let minutes = "0" + date_.getMinutes();
-  let seconds = "0" + date_.getSeconds();
 
   let formattedTime = `${day}/${month}/${year} ${hours}:${minutes.substr(-2)}`;
   let formattedAmount       = amount / 1000000;
   let formattedPayout       = payout / 1000000;
   let formattedPlan = 0;
-  (plan == 1) ? (formattedPlan = '25%') : ((plan == 2) ? (formattedPlan = '30%') : (formattedPlan = '20%'));
+  (plan === 1) ? (formattedPlan = '25%') : ((plan === 2) ? (formattedPlan = '30%') : (formattedPlan = '20%'));
 
   return (
         <Card style={{flex: id}}>

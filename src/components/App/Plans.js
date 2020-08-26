@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 
-const Plans = ({ onButtonInvest1, onButtonInvest2, onButtonInvest3, onInputChange1, onInputChange2, onInputChange3 }) => {
+const Plans = ({ onButtonInvest1, onButtonInvest2, onButtonInvest3, onButtonInvest4, onInputChange1, onInputChange2, onInputChange3, onInputChange4 }) => {
         return(
             <section id="features" className="services-area pt-120">
     <div className="container">
@@ -56,9 +56,9 @@ const Plans = ({ onButtonInvest1, onButtonInvest2, onButtonInvest3, onInputChang
                   <li><i className="lni-star-filled" /> Min. investment is 1 TRX</li>
                 </ul>
               </div>
-              <input type="number" id="input1" onChange={onInputChange1} min="10" max="10000000000" step="0.0000000001"/>
+              <input type="number" id="input2" onChange={onInputChange2} min="10" max="10000000000" step="0.0000000001"/>
               <br />
-              <button className="main-btn" style={{marginTop:10}} onClick={onButtonInvest1}>Invest</button>
+              <button className="main-btn" style={{marginTop:10}} onClick={onButtonInvest2}>Invest</button>
             </div>
           </div> {/* single services */}
         </div>
@@ -81,9 +81,9 @@ const Plans = ({ onButtonInvest1, onButtonInvest2, onButtonInvest3, onInputChang
                 </ul>
               </div>
 
-              <input type="number" id="input2" onChange={onInputChange2} min="10" max="10000000000" step="0.0000000001"/>
+              <input type="number" id="input3" onChange={onInputChange3} min="10" max="10000000000" step="0.0000000001"/>
               <br />
-              <button className="main-btn" style={{marginTop:10}} onClick={onButtonInvest2}>Invest</button>
+              <button className="main-btn" style={{marginTop:10}} onClick={onButtonInvest3}>Invest</button>
             </div>
           </div> {/* single services */}
         </div>
@@ -105,9 +105,9 @@ const Plans = ({ onButtonInvest1, onButtonInvest2, onButtonInvest3, onInputChang
                   <li><i className="lni-star-filled" /> Min. investment is 1 TRX</li>
                 </ul>
               </div>
-              <input type="number" id="input3" onChange={onInputChange3} min="10" max="10000000000" step="0.0000000001"/>
+              <input type="number" id="input4" onChange={onInputChange4} min="10" max="10000000000" step="0.0000000001"/>
               <br />
-              <button className="main-btn" style={{marginTop:10}} onClick={onButtonInvest3}>Invest</button>
+              <button className="main-btn" style={{marginTop:10}} onClick={onButtonInvest4}>Invest</button>
             </div>
           </div> {/* single services */}
         </div>

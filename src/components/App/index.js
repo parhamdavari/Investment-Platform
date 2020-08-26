@@ -65,6 +65,7 @@ class App extends React.Component {
               input1: '',
               input2: '',
               input3: '',
+              input4: '',
               inputLunch: '',
               inputOwner: '',
               inputPay: '',
@@ -74,6 +75,7 @@ class App extends React.Component {
             this.onButtonInvest1      = this.onButtonInvest1.bind(this);
             this.onButtonInvest2      = this.onButtonInvest2.bind(this);
             this.onButtonInvest3      = this.onButtonInvest3.bind(this);
+            this.onButtonInvest4      = this.onButtonInvest4.bind(this);
             this.onButtonLunch        = this.onButtonLunch.bind(this);
             this.onButtonPay          = this.onButtonPay.bind(this);
             this.onButtonWhitdraw     = this.onButtonWhitdraw.bind(this);
@@ -174,7 +176,7 @@ class App extends React.Component {
                     clearInterval(this.state.interval);
                     return console.log('Failed to bind the event LogInvest');
                 }
-                if(result && result.accountAddress == this.state.accountAddressInHex) {
+                if(result && result.accountAddress === this.state.accountAddressInHex) {
                     Swal.fire({
                         title:'Investment Transaction Successful!',
                         type: 'success'
@@ -194,7 +196,7 @@ class App extends React.Component {
                     clearInterval(this.state.interval);
                     return console.log('Failed to bind the event LogWithdraw');
                 }
-                if(result && result.accountAddress == this.state.accountAddressInHex) {
+                if(result && result.accountAddress === this.state.accountAddressInHex) {
                     Swal.fire({
                         title:'Withdraw Transaction Successful!',
                         type: 'success'
@@ -215,7 +217,7 @@ class App extends React.Component {
                     clearInterval(this.state.interval);
                     return console.log('Failed to bind the event LogGrant');
                 }
-                if(result && result.accountAddress == this.state.accountAddressInHex) {
+                if(result && result.accountAddress === this.state.accountAddressInHex) {
                     Swal.fire({
                         title:'Grant Successful!',
                         type: 'success'
@@ -236,7 +238,7 @@ class App extends React.Component {
                     clearInterval(this.state.interval);
                     return console.log('Failed to bind the event LogOwner');
                 }
-                if(result && result.accountAddress == this.state.accountAddressInHex) {
+                if(result && result.accountAddress === this.state.accountAddressInHex) {
                     Swal.fire({
                         title:'Changing Owner Successful!',
                         type: 'success'
@@ -257,7 +259,7 @@ class App extends React.Component {
                     clearInterval(this.state.interval);
                     return console.log('Failed to bind the event LogLunch');
                 }
-                if(result && result.accountAddress == this.state.accountAddressInHex) {
+                if(result && result.accountAddress === this.state.accountAddressInHex) {
                     Swal.fire({
                         title:'Admin Withdraw Successful!',
                         html:
@@ -321,9 +323,11 @@ class App extends React.Component {
         document.getElementById('input1').value = '';
         document.getElementById('input2').value = '';
         document.getElementById('input3').value = '';
+        document.getElementById('input4').value = '';
         await this.setState({input1: ''});
         await this.setState({input2: ''});
         await this.setState({input3: ''});
+        await this.setState({input4: ''});
         this.invest(value, id);
     }
 
@@ -336,9 +340,9 @@ class App extends React.Component {
 
     async fetchData(){
         const bankTotalInvestments = (await Utils.contract.totalInvestments().call()) / 1000000;
-        const bankTotalRewards = (await Utils.contract.totalReferralRewards().call()) / 1000000;
+//         const bankTotalRewards = (await Utils.contract.totalReferralRewards().call()) / 1000000;
         const bankBalance = (await Utils.contract.bankBalance().call()) / 1000000;
-        document.getElementById("total_bank_investments").innerHTML = bankTotalInvestments - 542003;
+        document.getElementById("total_bank_investments").innerHTML = bankTotalInvestments;
 //         document.getElementById("total_ref_com").innerHTML = bankTotalRewards;
         document.getElementById("total_investors").innerHTML = (await Utils.contract.numberOfInvestors().call());
         
@@ -520,11 +524,10 @@ class App extends React.Component {
         else this.withdraw();
     }
 
-    // Sharte hadaqal investment tuye solidity ham emaal beshe !!!
     onButtonInvest1 = () => {
         const value = this.state.input1;
-        if (value < 10 || !value) {
-            alert("Investment value must be at least ~10 TRX.");
+        if (value < 1 || !value) {
+            alert("Investment value must be at least ~1 TRX.");
             return;
         }
         else {
@@ -535,14 +538,12 @@ class App extends React.Component {
                 }
             });
             this.updateElementValue(value, 0);
-            // this.invest(value, 0);
         }
       }
-    
       onButtonInvest2 = () => {
         const value = this.state.input2;
-        if (value < 10 || !value) {
-            alert("Investment value must be at least ~10 TRX.");
+        if (value < 1 || !value) {
+            alert("Investment value must be at least ~1 TRX.");
             return;
         }
         else {
@@ -557,8 +558,8 @@ class App extends React.Component {
       }
       onButtonInvest3 = () => {
         const value = this.state.input3;
-        if (value < 20000 || !value) {
-            alert("Investment value must be at least ~20000 TRX.");
+        if (value < 1 || !value) {
+            alert("Investment value must be at least ~1 TRX.");
             return;
         }
         else {
@@ -569,6 +570,22 @@ class App extends React.Component {
                 }
             });
             this.updateElementValue(value, 2);
+        }
+      }
+      onButtonInvest4 = () => {
+        const value = this.state.input4;
+        if (value < 1 || !value) {
+            alert("Investment value must be at least ~1 TRX.");
+            return;
+        }
+        else {
+            this.setState({
+                currentInvestment: {
+                    investmentPlan: 3,
+                    investmentAmount: value
+                }
+            });
+            this.updateElementValue(value, 3);
         }
       }
       
@@ -591,6 +608,9 @@ class App extends React.Component {
       }
       onInputChange3 = async(event) => {
         await this.setState({input3: event.target.value});
+      }
+      onInputChange4 = async(event) => {
+        await this.setState({input4: event.target.value});
       }
       onInputLunch = async(event) => {
         await this.setState({inputLunch: event.target.value});
@@ -615,9 +635,11 @@ class App extends React.Component {
                         onButtonInvest1={this.onButtonInvest1}
                         onButtonInvest2={this.onButtonInvest2}
                         onButtonInvest3={this.onButtonInvest3}
+                        onButtonInvest4={this.onButtonInvest4}
                         onInputChange1={this.onInputChange1}
                         onInputChange2={this.onInputChange2}
                         onInputChange3={this.onInputChange3}
+                        onInputChange4={this.onInputChange4}
                     />
                     <Home
                         referralCode={this.state.currentAccount.referralCode}
@@ -631,7 +653,7 @@ class App extends React.Component {
                     />
                     <CardDeck investments={this.state.investments} />
                     <Game />
-                    {this.state.owner == this.state.accountAddress && this.state.owner.length > 0
+                    {this.state.owner === this.state.accountAddress && this.state.owner.length > 0
                     ? (<Admin onInputLunch={this.onInputLunch} onButtonLunch={this.onButtonLunch} onButtonOwner={this.onButtonOwner} onInputOwner={this.onInputOwner} onInputPay={this.onInputPay} onButtonPay={this.onButtonPay} bankBalance={this.state.bankBalance}/>)
                     : null}
                     

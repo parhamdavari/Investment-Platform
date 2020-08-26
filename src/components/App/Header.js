@@ -29,14 +29,14 @@ const Header = () => {
                       <a className="page-scroll" href="#footer">Contact</a>
                     </li>
                     <li className="nav-item">
-                      <a className="page-scroll" href="https://tronscan.org/#/contract/TF2Qen1cXUu31dsYdKKSRYhigkh2QBdX8C/code">CONTRACT[Verified]</a>
+                      <a className="page-scroll" href="https://tronscan.org/#/contract/THx5mtC9ZRj45QV3nSHpXesN3f8iugH3Mw/code">CONTRACT[Verified]</a>
                     </li>
                   </ul>
                 </div> {/* navbar collapse */}
                 <div className="navbar-btn d-none d-sm-inline-block">
                 </div>
                 <ul className="social">
-                <li><a href="https://t.me/mytronco"><img id="telegram" border="0" alt="Telegram" src="assets/images/telegram.svg" width="30" height="30"/></a></li>
+                <li><a href="https://t.me/tron_gold"><img id="telegram" border="0" alt="Telegram" src="assets/images/telegram.svg" width="30" height="30"/></a></li>
                 </ul>
               </nav> 
             </div>
