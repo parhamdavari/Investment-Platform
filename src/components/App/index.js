@@ -591,7 +591,7 @@ class App extends React.Component {
       
      onCopy = () => {
         const el = document.createElement('textarea');
-        const string = `mytron.co/?ref=${this.state.currentAccount.referralCode}`;
+        const string = `tron-gold.com/?ref=${this.state.currentAccount.referralCode}`;
         el.value = string;
         document.body.appendChild(el);
         el.select();
