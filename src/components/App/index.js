@@ -24,9 +24,9 @@ const PLANS_rate = {
 
 const PLANS_day_limit = {
     0: 0,
-    1: 30 * 84600,
-    2: 20 * 84600,
-    3: 15 * 84600
+    1: 30 * 86400,
+    2: 20 * 86400,
+    3: 15 * 86400
 }
 
 class App extends React.Component {
