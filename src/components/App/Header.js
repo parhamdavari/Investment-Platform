@@ -29,7 +29,7 @@ const Header = () => {
                       <a className="page-scroll" href="#footer">Contact</a>
                     </li>
                     <li className="nav-item">
-                      <a className="page-scroll" href="https://tronscan.org/#/contract/THx5mtC9ZRj45QV3nSHpXesN3f8iugH3Mw/code">CONTRACT[Verified]</a>
+                      <a className="page-scroll" href="https://tronscan.org/#/contract/TEZXPCJASmoqA2C6cwTFD5iwAQRXQGqzAb/code">CONTRACT[Verified]</a>
                     </li>
                   </ul>
                 </div> {/* navbar collapse */}
