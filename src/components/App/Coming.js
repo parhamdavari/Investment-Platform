@@ -14,7 +14,7 @@ export default class Timer extends Component {
             const response = await fetch('http://worldtimeapi.org/api/timezone/Europe/London');
             const myJson = await response.json();
             const formattedTime = myJson.unixtime;
-            const openingDateInSec = 1607009800;
+            const openingDateInSec = 1607189000;
             let distance = openingDateInSec - formattedTime;
             distance = distance > 0 ? distance : 0;
             const days = Math.floor(distance / (60 * 60 * 24));
