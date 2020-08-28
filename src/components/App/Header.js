@@ -52,7 +52,7 @@ const Header = () => {
           <div className="col-lg-8">
             <div className="header-hero-content text-center mt-100">
               <h3 className="header-sub-title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s" />
-              <h1 className="header-title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.5s">5.6-8.6% Daily ROI</h1>
+              <h1 className="header-title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.5s">6-9% Daily ROI</h1>
               <h1 style={{marginTop:35, color:"red"}} className="header-title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.5s">5% DIRECT REFERRAL COMMISSION</h1>
               
               <p className="text wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.8s">Decentralized &amp; Secure Smart Contract Fund.</p>

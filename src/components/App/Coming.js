@@ -14,8 +14,9 @@ export default class Timer extends Component {
             const response = await fetch('http://worldtimeapi.org/api/timezone/Europe/London');
             const myJson = await response.json();
             const formattedTime = myJson.unixtime;
-            const openingDateInSec = 1594992600;
-            const distance = openingDateInSec - formattedTime;
+            const openingDateInSec = 1607009800;
+            let distance = openingDateInSec - formattedTime;
+            distance = distance > 0 ? distance : 0;
             const days = Math.floor(distance / (60 * 60 * 24));
             const hours = Math.floor((distance % (60 * 60 * 24)) / ( 60 * 60));
             const minutes = Math.floor((distance % (60 * 60)) / (60));
@@ -73,7 +74,7 @@ export default class Timer extends Component {
     render() {
         const { days, hours, minutes, seconds } = this.state
         return (
-            <section id="about" className="services-area pt-120">
+            <section id="about" className="services-area pt-50">
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-lg-10">
@@ -88,7 +89,7 @@ export default class Timer extends Component {
                         <div className="text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
                             <div className="about-content mt-30">
                             { minutes === 0 && seconds === 0 && hours === 0
-                                ? <h1>Congrats! Refresh the page to start INVESTING!</h1>
+                                ? <h1>... Start INVESTING!</h1>
                                 : <h1>{days < 10 ? `0${days}` : days}:{hours < 10 ? `0${hours}` : hours}:{minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
                             }
                                 
