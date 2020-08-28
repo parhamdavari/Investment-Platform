@@ -14,15 +14,15 @@ export default class Timer extends Component {
             const response = await fetch('http://worldtimeapi.org/api/timezone/Europe/London');
             const myJson = await response.json();
             const formattedTime = myJson.unixtime;
-            const openingDateInSec = 1607189000;
+            const openingDateInSec = 1598991613;
             let distance = openingDateInSec - formattedTime;
             distance = distance > 0 ? distance : 0;
-            const days = Math.floor(distance / (60 * 60 * 24));
-            const hours = Math.floor((distance % (60 * 60 * 24)) / ( 60 * 60));
+            // const days = Math.floor(distance / (60 * 60 * 24));
+            // const hours = Math.floor((distance % (60 * 60 * 24)) / ( 60 * 60));
+            const hours = Math.floor(distance / ( 60 * 60));
             const minutes = Math.floor((distance % (60 * 60)) / (60));
             const seconds = Math.floor((distance % (60)));
             this.setState({
-                days:days,
                 hours:hours,
                 minutes:minutes,
                 seconds:seconds
@@ -31,7 +31,7 @@ export default class Timer extends Component {
         userAction();
 
         this.myInterval = setInterval(() => {
-            const { days, seconds, minutes, hours } = this.state;
+            const { seconds, minutes, hours } = this.state;
 
             if (seconds > 0) {
                 this.setState(({ seconds }) => ({
@@ -41,15 +41,8 @@ export default class Timer extends Component {
             if (seconds === 0) {
                 if (minutes === 0) {
                     if(hours === 0) {
-                        if(days === 0) {
-                            clearInterval(this.myInterval);
-                        }
-                        else {
-                            this.setState(({ days }) => ({
-                                days: days - 1,
-                                hours: 23
-                            }))   
-                        }
+                        clearInterval(this.myInterval);
+                        
                     }
                     else {
                         this.setState(({ hours }) => ({
@@ -72,7 +65,7 @@ export default class Timer extends Component {
     }
 
     render() {
-        const { days, hours, minutes, seconds } = this.state
+        const { hours, minutes, seconds } = this.state
         return (
             <section id="about" className="services-area pt-50">
                 <div className="container">
@@ -90,7 +83,7 @@ export default class Timer extends Component {
                             <div className="about-content mt-30">
                             { minutes === 0 && seconds === 0 && hours === 0
                                 ? <h1>... Start INVESTING!</h1>
-                                : <h1>{days < 10 ? `0${days}` : days}:{hours < 10 ? `0${hours}` : hours}:{minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
+                                : <h1>{hours < 10 ? `0${hours}` : hours}:{minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
                             }
                                 
                             </div>
