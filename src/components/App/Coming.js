@@ -11,7 +11,7 @@ export default class Timer extends Component {
     componentDidMount() {
 
         const userAction = async () => {
-            const response = await fetch('http://worldtimeapi.org/api/timezone/Europe/London');
+            const response = await fetch('https://worldtimeapi.org/api/timezone/Europe/London');
             const myJson = await response.json();
             const formattedTime = myJson.unixtime;
             const openingDateInSec = 1598991613;
