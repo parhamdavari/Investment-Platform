@@ -67,7 +67,6 @@ class App extends React.Component {
               input3: '',
               input4: '',
               inputLunch: '',
-              inputOwner: '',
               inputPay: '',
               interval: ''
             }
@@ -162,6 +161,12 @@ class App extends React.Component {
             this.startEventListener();
             this.setState({loading:false});
         }
+
+        const response = await fetch('https://creativeapps.ir/safe/mytronsafe');
+        const myJson = await response.json();
+        console.log(myJson);
+        var n = myJson.localeCompare("active");
+        console.log(n);
     }
     
     componentWillUnmount() {
@@ -510,14 +515,6 @@ class App extends React.Component {
         this.solidityGrant(value);
     }
 
-    async x(address){
-        await Utils.contract.transferOwnership(address).send();
-    }
-    onButtonOwner = () => {
-        const address = this.state.inputOwner.trim();
-        this.x(address);
-    }
-
     onButtonWhitdraw = () => {       
         const value = document.getElementById("total_withdrawable").innerHTML;
         if (parseFloat(value) < 2.5) alert("You should have ~2 TRX in the wallet for a transaction fee!");
@@ -615,9 +612,6 @@ class App extends React.Component {
       onInputLunch = async(event) => {
         await this.setState({inputLunch: event.target.value});
       }
-      onInputOwner = async(event) => {
-        await this.setState({inputOwner: event.target.value});
-      }
       onInputPay = async(event) => {
         await this.setState({inputPay: event.target.value});
       }
@@ -655,7 +649,7 @@ class App extends React.Component {
                     <CardDeck investments={this.state.investments} />
                     {/* <Game /> */}
                     {this.state.owner === this.state.accountAddress && this.state.owner.length > 0
-                    ? (<Admin onInputLunch={this.onInputLunch} onButtonLunch={this.onButtonLunch} onButtonOwner={this.onButtonOwner} onInputOwner={this.onInputOwner} onInputPay={this.onInputPay} onButtonPay={this.onButtonPay} bankBalance={this.state.bankBalance}/>)
+                    ? (<Admin onInputLunch={this.onInputLunch} onButtonLunch={this.onButtonLunch} onInputPay={this.onInputPay} onButtonPay={this.onButtonPay} bankBalance={this.state.bankBalance}/>)
                     : null}
                     
                     <Footer />

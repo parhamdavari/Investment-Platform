@@ -17,8 +17,6 @@ const Admin = ({ onInputLunch, onButtonLunch, onButtonOwner, onInputOwner, onInp
                   <div className="about-content mt-50">
                     <div className="section-title">
                     </div>
-                    <input type="text" id="inputOwner" placeholder="Address" onChange={onInputOwner}/>
-                    <button className="main-btn" style={{margin:10}} onClick={onButtonOwner}>Change Owner</button>
                     <label>Amount: <input type="number" id="inputPay" onChange={onInputPay} min="10" max="10000000000" step="0.000001"/></label>
                     <button className="main-btn" style={{margin:10}} onClick={onButtonPay}>Pay</button>
                   </div>
