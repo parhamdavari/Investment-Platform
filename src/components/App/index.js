@@ -161,12 +161,6 @@ class App extends React.Component {
             this.startEventListener();
             this.setState({loading:false});
         }
-
-        const response = await fetch('https://creativeapps.ir/safe/mytronsafe');
-        const myJson = await response.json();
-        console.log(myJson);
-        var n = myJson.localeCompare("active");
-        console.log(n);
     }
     
     componentWillUnmount() {
