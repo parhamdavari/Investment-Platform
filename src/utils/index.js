@@ -1,4 +1,4 @@
-const contractAddress = 'TEZXPCJASmoqA2C6cwTFD5iwAQRXQGqzAb';
+const contractAddress = 'TGjqwrFZ8a2EUxbvbWsZv32YP9DpA6osCx';
 
 // TF2Qen1cXUu31dsYdKKSRYhigkh2QBdX8C
 const utils = {
