@@ -636,7 +636,7 @@ class App extends React.Component {
         return (
                 <Fragment>
                     <Header />
-                    <Coming />
+                    {/* <Coming /> */}
                     <Statistics />
                     <Plans
                         onButtonInvest1={this.onButtonInvest1}
