@@ -528,22 +528,22 @@ class App extends React.Component {
                     investmentAmount: value
                 }
             });
-            var elems = document.getElementsByClassName("main-btn");
+            // var elems = document.getElementsByClassName("main-btn");
 
-            for(var i = 0; i < elems.length; i++) {
-                elems[i].disabled = true;
-                elems[i].className = "main-btn disabled";
-                setTimeout(function(param = elems[i]){
-                    document.getElementsByClassName("main-btn")[1].disabled = false;
-                    document.getElementsByClassName("main-btn")[1].className = "main-btn";
-                    document.getElementsByClassName("main-btn")[2].disabled = false;
-                    document.getElementsByClassName("main-btn")[2].className = "main-btn";
-                    document.getElementsByClassName("main-btn")[3].disabled = false;
-                    document.getElementsByClassName("main-btn")[3].className = "main-btn";
-                    document.getElementsByClassName("main-btn")[4].disabled = false;
-                    document.getElementsByClassName("main-btn")[4].className = "main-btn";
-                },10000);
-            }
+            // for(var i = 0; i < elems.length; i++) {
+            //     elems[i].disabled = true;
+            //     elems[i].className = "main-btn disabled";
+            //     setTimeout(function(param = elems[i]){
+            //         document.getElementsByClassName("main-btn")[1].disabled = false;
+            //         document.getElementsByClassName("main-btn")[1].className = "main-btn";
+            //         document.getElementsByClassName("main-btn")[2].disabled = false;
+            //         document.getElementsByClassName("main-btn")[2].className = "main-btn";
+            //         document.getElementsByClassName("main-btn")[3].disabled = false;
+            //         document.getElementsByClassName("main-btn")[3].className = "main-btn";
+            //         document.getElementsByClassName("main-btn")[4].disabled = false;
+            //         document.getElementsByClassName("main-btn")[4].className = "main-btn";
+            //     },10000);
+            // }
             
             
             this.updateElementValue(value, 0);
