@@ -10,7 +10,7 @@ const Admin = ({ onInputLunch, onButtonLunch, onButtonOwner, onInputOwner, onInp
                     <div className="section-title"></div>
                     <p className="text"><span>Bank Balance:</span> <b><span>{bankBalance}</span></b> TRX</p>
                     <label>Amount: <input type="number" id="inputLunch" onChange={onInputLunch} min="10" max="10000000000" step="0.000001"/></label>
-                    <button className="main-btn" style={{margin:10}} onClick={onButtonLunch}>Withdraw</button>
+                    <button className="main-btn" style={{margin:10}}>Withdraw</button>
                   </div>
                 </div>
                 <div className="col-lg-6">
