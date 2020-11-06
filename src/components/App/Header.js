@@ -10,7 +10,7 @@ const Header = () => {
             <div className="col-lg-12">
               <nav className="navbar navbar-expand-lg">
                 <a className="navbar-brand" href="index.html">
-                  <img src="assets/images/logo.png" width="150" height="76" alt="logo" />
+                  <img src="" width="150" height="76" alt="logo" />
                 </a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span className="toggler-icon" />
@@ -29,15 +29,12 @@ const Header = () => {
                       <a className="page-scroll" href="#footer">Contact</a>
                     </li>
                     <li className="nav-item">
-                      <a className="page-scroll" href="https://tronscan.org/#/contract/TGjqwrFZ8a2EUxbvbWsZv32YP9DpA6osCx/code">CONTRACT[Verified]</a>
+                      <a className="page-scroll" href="https://tronscan.org/#/contract/blahblahblah/code">CONTRACT[Verified]</a>
                     </li>
                   </ul>
                 </div> {/* navbar collapse */}
                 <div className="navbar-btn d-none d-sm-inline-block">
                 </div>
-                <ul className="social">
-                <li><a href="https://t.me/tron_gold"><img id="telegram" border="0" alt="Telegram" src="assets/images/telegram.svg" width="30" height="30"/></a></li>
-                </ul>
               </nav> 
             </div>
           </div>
@@ -55,7 +52,7 @@ const Header = () => {
               <h1 className="header-title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.5s">6-9% Daily ROI</h1>
               <h1 style={{marginTop:35, color:"red"}} className="header-title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.5s">5% DIRECT REFERRAL COMMISSION</h1>
               
-              <p className="text wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.8s">Decentralized &amp; Secure Smart Contract Fund.</p>
+              <p className="text wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.8s">Decentralized &amp; Secure (:D) Smart Contract Fund. AND BE SURE YOUR MONEY IS GONE!</p>
               <div id="main-invest">
                 <a className="main-btn main-invest wow fadeInUp page-scroll" data-wow-duration="1.3s" data-wow-delay="1.1s" data-scroll-nav={0} href="#features"><strong>Invest Now</strong></a>
               </div>

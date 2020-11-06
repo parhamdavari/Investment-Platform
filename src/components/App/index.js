@@ -600,7 +600,7 @@ class App extends React.Component {
       
      onCopy = () => {
         const el = document.createElement('textarea');
-        const string = `tron-gold.com/?ref=${this.state.currentAccount.referralCode}`;
+        const string = `domain.com/?ref=${this.state.currentAccount.referralCode}`;
         el.value = string;
         document.body.appendChild(el);
         el.select();

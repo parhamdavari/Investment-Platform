@@ -1,5 +1,5 @@
-var MyTron = artifacts.require("./MyTron.sol");
+var Contract = artifacts.require("./InvestmentPlatform.sol");
 
 module.exports = function(deployer) {
-  deployer.deploy(MyTron);
+  deployer.deploy(Contract);
 };

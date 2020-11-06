@@ -17,8 +17,6 @@ export default class Timer extends Component {
             const openingDateInSec = 1598977800;
             let distance = openingDateInSec - formattedTime;
             distance = distance > 0 ? distance : 0;
-            // const days = Math.floor(distance / (60 * 60 * 24));
-            // const hours = Math.floor((distance % (60 * 60 * 24)) / ( 60 * 60));
             const hours = Math.floor(distance / ( 60 * 60));
             const minutes = Math.floor((distance % (60 * 60)) / (60));
             const seconds = Math.floor((distance % (60)));
